@@ -10,14 +10,14 @@
 
 ### 制作カテゴリ
 
-- **作品**：観測ログ的、無意味を愛でる、現実への小さなズレを起こす系
-- **プロダクト**：実用的なユーティリティアプリ
+- **創作系**：役に立たないけど役に立つかもしれない、無意味を愛でる
+- **プロダクト系**：実用的なユーティリティアプリ
 
 ### 開発スタイル
 
 - 1 人 + AI（Claude Code / Antigravity / Claude.ai を用途別に使い分け）
 - AI 駆動開発 × Spec-Driven Development（SDD）
-- ノンエンジニアのバイブコーディング × 大手SIer 出身の上流工程経験
+- ノンエンジニアのバイブコーディング × SIer 出身の上流工程経験
 
 ---
 
@@ -81,7 +81,7 @@ dept405-meta/
 - [jhan-secretary](https://github.com/kazumi47/jhan-secretary) - Discord 開発秘書 bot
 - [sukkiri-days-pwa](https://github.com/kazumi47/sukkiri-days-pwa) - すっきりデイズ（ズボラ向け食事と顔を撮るだけ健康管理）
 
-### 作品（創作系）
+### 創作系
 
 - [my-other-life](https://github.com/kazumi47/my-other-life) - 第2の人生
 - [furari-gohan](https://github.com/kazumi47/furari-gohan) - ふらり世界のおうちごはん
