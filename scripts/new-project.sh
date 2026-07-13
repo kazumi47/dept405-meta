@@ -42,6 +42,26 @@ copy_template "${TEMPLATES_DIR}/decisions.md.template" "docs/decisions.md"
 copy_template "${TEMPLATES_DIR}/tasks.md.template" "docs/tasks.md"
 copy_template "${TEMPLATES_DIR}/roadmap.md.template" "docs/roadmap.md"
 
+# GitHubリポジトリ（private既定）を作成し、初期コミットをpushする。
+# spec-driven-dev §7「こまめにコミット・push」の前提となるリモートを、
+# プロジェクト開始時点で必ず用意する（リモート未作成のままpushルールだけが
+# 存在する工程の歯抜けを防ぐ。出典: dragon-ball-type の運用監査）。
+git add -A
+git commit -q -m "chore: プロジェクト雛形を作成（dept405-meta new-project.sh）"
+
+if command -v gh > /dev/null 2>&1 && gh auth status > /dev/null 2>&1; then
+  if gh repo create "${PROJECT_NAME}" --private --source . --remote origin --push; then
+    echo "GitHub: private リポジトリ ${PROJECT_NAME} を作成し、初期コミットをpushしました"
+  else
+    echo "警告: GitHubリポジトリの作成に失敗しました。手動で作成してください:" >&2
+    echo "  gh repo create ${PROJECT_NAME} --private --source . --remote origin --push" >&2
+  fi
+else
+  echo "警告: gh CLI が未導入または未認証のため、リモートを作成していません。" >&2
+  echo "  リモート未作成のままではpush運用（spec-driven-dev §7）が機能しません。" >&2
+  echo "  後で必ず実行: gh repo create ${PROJECT_NAME} --private --source . --remote origin --push" >&2
+fi
+
 echo ""
 echo "完了: ${PROJECT_DIR}"
 echo ""
